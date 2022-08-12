@@ -1,0 +1,46 @@
+.header{
+    height: 60px;
+    background: linear-gradient(135deg,#0143a3,#0273d4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    top: 0px;
+}
+
+.myForm{
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+}
+
+.myTable{
+    max-width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+}
+
+label{
+    margin-top: 10px;
+}
+
+.error{
+    color: red;
+    margin-bottom: 0px !important;
+}
+
+/* to remove arrows of input type number */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

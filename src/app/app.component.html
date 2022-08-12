@@ -1,0 +1,95 @@
+<div class="header">
+  <p style="font-size: 20px; font-weight: 600; color: white">Registration Form</p>
+</div>
+
+<div style="height: 55px;"></div>
+
+<h3 style="text-align: center; margin-top: 5vh">Reactive form Example</h3>
+
+<div class="row">
+ <div class="col-lg-12 col-md-12">
+  <div class="myForm">
+    <form [formGroup]="registartionForm">
+      <label>First Name:</label>
+      <input type="text" class="form-control" formControlName="firstName" placeholder="type here...">
+      <p *ngIf="registartionForm.controls['firstName'].invalid && (registartionForm.controls['firstName'].touched || registartionForm.controls['firstName'].dirty)" class="error">First name is Required</p>
+      <label>Last Name:</label>
+      <input type="text" class="form-control" formControlName="lastName" placeholder="type here...">
+      <p *ngIf="registartionForm.controls['lastName'].invalid && (registartionForm.controls['lastName'].touched || registartionForm.controls['lastName'].dirty)" class="error">Last name is Required</p>
+      <label>Email:</label>
+      <input type="email" class="form-control" formControlName="email" placeholder="type here...">
+      <p *ngIf="registartionForm.controls['email'].invalid && (registartionForm.controls['email'].touched || registartionForm.controls['email'].dirty)" class="error">Email is Required</p>
+      <label>Phone:</label>
+      <input type="number" class="form-control" formControlName="phone" placeholder="type here...">
+      <p *ngIf="registartionForm.controls['phone'].invalid && (registartionForm.controls['phone'].touched || registartionForm.controls['phone'].dirty)" class="error">Phone Number is Required</p>
+      <label>Compnay:</label>
+      <input type="text" class="form-control" formControlName="company" placeholder="type here...">
+      <p *ngIf="registartionForm.controls['company'].invalid && (registartionForm.controls['company'].touched || registartionForm.controls['company'].dirty)" class="error">Company is Required</p>
+      <label>Gender:</label>
+      <div class="form-check">
+        <label style="margin-top: 0px;" class="form-check-label" for="male">
+          Male
+        </label>
+        <input class="form-check-input" formControlName="gender" (change)="setGender($event)" type="radio" name="gender" value="male" id="male">
+      </div>
+      <div class="form-check">
+        <label style="margin-top: 0px;" class="form-check-label" for="female">
+          Female
+        </label>
+        <input class="form-check-input" formControlName="gender" (change)="setGender($event)" type="radio" name="gender" value="female" id="female">
+      </div>
+      <p *ngIf="registartionForm.controls['gender'].invalid && (registartionForm.controls['gender'].touched || registartionForm.controls['gender'].dirty)" class="error">Gender is Required</p>
+      <label>DOB:</label>
+      <input type="date" class="form-control" formControlName="DOB" placeholder="type here...">
+      <p *ngIf="registartionForm.controls['DOB'].invalid && (registartionForm.controls['DOB'].touched || registartionForm.controls['DOB'].dirty)" class="error">DOB is Required</p>
+      <label>Password:</label>
+      <input type="password" class="form-control" formControlName="password" placeholder="type here...">
+      <p *ngIf="registartionForm.controls['password'].invalid && (registartionForm.controls['password'].touched || registartionForm.controls['password'].dirty)" class="error">Password is Required</p>
+      <label>Confirm Password:</label>
+      <input type="password" class="form-control" formControlName="confirmPassword" placeholder="type here...">
+      <p *ngIf="registartionForm.controls['confirmPassword'].invalid && (registartionForm.controls['confirmPassword'].touched || registartionForm.controls['confirmPassword'].dirty)" class="error">Confirm Password is Required</p>
+    </form>
+    <button *ngIf="!editData" class="btn btn-primary" style="margin-top: 10px;" (click)="addUser()">ADD USER</button>
+    <button *ngIf="editData" class="btn btn-primary" style="margin-top: 10px;" (click)="updateUser()">UPDATE USER</button>
+    <button (click)="clearForm()" class="btn btn-secondary" style="margin-top: 10px; margin-left: 10px;">CANCEL</button>
+    <p *ngIf="notify" style="color: green;">User Saved Successfully...</p>
+  </div>
+ </div>
+ <div class="col-lg-12 col-md-12">
+  <div class="myTable">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone Number</th>
+        <th scope="col">Company</th>
+        <th scope="col">Gender</th>
+        <th scope="col">DOB</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of usersArray; index as i">
+        <th scope="row"></th>
+        <td>
+          {{i+1}}
+        </td>
+        <td>{{user.firstName}}</td>
+        <td>{{user.lastName}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.phone}}</td>
+        <td>{{user.company}}</td>
+        <td>{{user.gender}}</td>
+        <td>{{user.DOB}}</td>
+        <td><button class="btn btn-secondary" style="margin-top: 0px;" (click)="editUser(user)">EDIT</button></td>
+        <td><button class="btn btn-secondary" style="margin-top: 0px;" (click)="deleteUser(user)">DELETE</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+ </div>
+</div>
