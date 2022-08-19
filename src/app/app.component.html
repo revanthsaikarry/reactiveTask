@@ -27,15 +27,11 @@
       <p *ngIf="registartionForm.controls['company'].invalid && (registartionForm.controls['company'].touched || registartionForm.controls['company'].dirty)" class="error">Company is Required</p>
       <label>Gender:</label>
       <div class="form-check">
-        <label style="margin-top: 0px;" class="form-check-label" for="male">
-          Male
-        </label>
+        <label style="margin-top: 0px;" class="form-check-label" for="male">Male</label>
         <input class="form-check-input" formControlName="gender" (change)="setGender($event)" type="radio" name="gender" value="male" id="male">
       </div>
       <div class="form-check">
-        <label style="margin-top: 0px;" class="form-check-label" for="female">
-          Female
-        </label>
+        <label style="margin-top: 0px;" class="form-check-label" for="female">Female</label>
         <input class="form-check-input" formControlName="gender" (change)="setGender($event)" type="radio" name="gender" value="female" id="female">
       </div>
       <p *ngIf="registartionForm.controls['gender'].invalid && (registartionForm.controls['gender'].touched || registartionForm.controls['gender'].dirty)" class="error">Gender is Required</p>
